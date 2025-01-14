@@ -16,7 +16,7 @@ Improve the baseline pneumonia classification results by applying simple yet eff
 
 ### Key Findings:
 1. **Pre-trained InceptionV3 Model:** After fine-tuning the InceptionV3 model, the accuracy and F1 score improved significantly compared to the baseline model.
-2. **Training Time vs. Performance:** Training on Google Colab with a more complex model like InceptionV3 took significantly longer but yielded only a slight improvement over a simpler architecture. This raises important considerations about resource efficiency and trade-offs in model selection.
+2. **Training Time vs. Performance:** Training on Google Colab with a more complex model like InceptionV3 took significantly longer but showed a slightly lower accuracy improvement over a simpler architecture. This raises important considerations about resource efficiency and trade-offs in model selection.
 
 ---
 
@@ -44,29 +44,42 @@ The dataset is divided into training, validation, and test sets.
 3. **Evaluation Metrics:**
    - Accuracy
    - F1 Score
-   - Confusiion Matrix
+   - Confusion Matrix
 
 ---
 
 ## Results
 | Model                  | Accuracy (%) | F1 Score | Training Time |
 |------------------------|--------------|----------|---------------|
-| Baseline CNN           | 75.86        | 0.72     | ~10 min       |
-| Improved InceptionV3   | 88.89        | 0.83     | ~2 hrs      |
-
-
-
+| Baseline CNN           | 95.39        | 0.70     | ~10 min       |
+| Improved InceptionV3   | 93.08        | 0.72     | ~2 hrs        |
 
 ---
 
 ## Discussion
 
-The addition of layers and the use of a pre-trained InceptionV3 model led to better performance. However, the improvement in accuracy and F1 score came at the cost of significantly longer training times.
+The evaluation of model performance provides insights into the trade-offs between simplicity, complexity, and resource efficiency:
+
+### Baseline CNN
+The Baseline CNN achieved a higher accuracy of **95.39%** compared to the Improved InceptionV3. However, its F1 score of **0.70** suggests potential challenges in balancing precision and recall, especially when dealing with imbalanced data. This discrepancy highlights the model’s potential limitations in distinguishing between the two classes effectively.
+
+Despite this, the Baseline CNN’s training time of **~10 minutes** makes it a practical choice for rapid development and iteration, especially in environments with limited computational resources.
+
+### Improved InceptionV3
+The Improved InceptionV3 model displayed a slightly lower accuracy of **93.08%**, potentially due to overfitting or challenges in generalization. However, its F1 score of **0.72** demonstrates improved balance between precision and recall, making it a better choice for applications where false positives and false negatives carry significant importance.
+
+The model’s training time of **~2 hours** reflects the trade-off between complexity and computational cost. In scenarios with access to more powerful hardware, additional epochs or further fine-tuning could enhance both accuracy and F1 score, potentially surpassing the Baseline CNN.
 
 ### Key Takeaways:
-- **Complex Models vs. Simple Architectures:** While complex pre-trained models like InceptionV3 yield slightly better results, their training time might not justify the minor improvements in some cases. This highlights the importance of considering the context and available computational resources.
-- **Simple Improvements Can Go a Long Way:** Adding layers and incorporating regularization techniques like dropout proved effective in improving the baseline model.
+- The Baseline CNN offers quick training and high accuracy, making it suitable for scenarios prioritizing efficiency.
+- The Improved InceptionV3 model provides better-balanced predictions, but its longer training time makes it less practical without sufficient computational resources.
 
+### Recommendations:
+To maximize the potential of the Improved InceptionV3, future efforts could include:
+- Utilizing more advanced hardware to reduce per-epoch training times.
+- Increasing the number of epochs to explore its potential for achieving higher accuracy and F1 scores.
+
+---
 
 ## Future Work
 - Explore additional pre-trained models such as ResNet50 or EfficientNet.
