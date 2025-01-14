@@ -52,7 +52,7 @@ The dataset is divided into training, validation, and test sets.
 | Model                  | Accuracy (%) | F1 Score | Training Time |
 |------------------------|--------------|----------|---------------|
 | Baseline CNN           | 75.86        | 0.72     | ~10 min       |
-| Improved InceptionV3   | 88.89        | 0.83     | ~1.5 hrs      |
+| Improved InceptionV3   | 88.89        | 0.83     | ~2 hrs      |
 
 
 
